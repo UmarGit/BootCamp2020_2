@@ -1,5 +1,5 @@
 
-name: BootCamp2020_1
+name: BootCamp2020_2
 on:
   push:
     branches: [ master ]
