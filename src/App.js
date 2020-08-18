@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Nav from './Nav' ;
 import Body from './Body' ;
 import Footer from './Footer' ;
 import './App.css';
 
 function App() {
+  let [darkMode, setDarkMode] = useState(false)
+  let [count, setCount] = useState(0)
   return (
-    <div className="App">
-      <Nav header="My First React Js App"/>
-      <Body caption="That's Why I love React !" />
-      <Footer footer="Created By"/>
+    <div className={` ${darkMode ? 'AppDark' : 'AppLight'} `}>
+      <Nav header="Counter App" darkMode={darkMode} switchMode={()=> setDarkMode(!darkMode)}/>
+      <Body caption="That's Why I love React !" darkMode={darkMode} counter={count} addCount={()=> setCount(++count)}/>
+      <Footer footer="Created By" darkMode={darkMode}/>
     </div>
   );
 }
